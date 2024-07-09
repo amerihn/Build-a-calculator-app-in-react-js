@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 
 const App = () => {
@@ -53,10 +54,9 @@ const App = () => {
     };
 
     // reset result 
-    const restResult = (e) =>{
+    const resetResult = (e) =>{
       e.preventDefault();
-      setResult((result) => result * 0);
-      inputRef.current.value = 0;
+      setResult((prevVal) => prevVal * 0);
     }
 
   console.log(result);
@@ -69,8 +69,6 @@ const App = () => {
         <input
           type="number"
           ref={inputRef}
-          name="number"
-          id="number"
           pattern="[0-9]"
           placeholder="Type a number"
         />
@@ -80,7 +78,7 @@ const App = () => {
         <button onClick={times}>multiply</button>
         <button onClick={devide}>devide</button>
         <button onClick={resetInput} className="btn1">reset input</button>
-        <button onClick={restResult} className="btn2">reset result</button>
+        <button onClick={resetResult} className="btn2">reset result</button>
       </form>
     </div>
   );
